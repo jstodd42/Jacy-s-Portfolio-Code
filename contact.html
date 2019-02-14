@@ -1,3 +1,20 @@
+<?php
+if(isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $subject = $_POST['subject'];
+    $mailFrom = $_POST['mail'];
+    $message = $_POST['message'];
+    
+    
+    $mailTo = "jacy@jacytodd.com";
+    $headers = "From: ".$mailFrom;
+    $txt = "You have recieved an e-mail from ".$name.".\n\n".$message;
+        
+    mail($mailTo, $subject, $txt, $headers);
+    header("Location: contact.html?mailsend");
+}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD html 4.01 Transitional//EN">
 <html lang="en">
 
@@ -43,7 +60,7 @@
     <section id="contact">
         <div class="container">
             <h3 class="contact-subtitle">Get in Touch!</h3>
-            <form class="contact-form" action="contact-form.php" method="post">
+            <form class="contact-form" action="contact.html" method="post">
                 <input type="text" name="name" placeholder="Full Name" required>
                 <input type="email" name="mail" placeholder="Your Email Address" required>
                 <input type="text" name="subject" placeholder="Subject">
