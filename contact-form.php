@@ -1,18 +1,22 @@
 <?php
 
-if(isset($_POST['submit'])) {
     $name = $_POST['name'];
-    $subject = $_POST['subject'];
-    $mailFrom = $_POST['mail'];
+    $visitor_email = $_POST['email'];
     $message = $_POST['message'];
     
+    $email_from = 'jacy@jacytodd.com';
+
+    $email_subject = "New Submission Form";
+
+    $email_body = "User Name: $name .\n".
+                    "User Email: $visitor_email .\n".
+                    "User Message: $message.\n";
     
-    $mailTo = "jacy@jacytodd.com";
-    $headers = "From: ".$mailFrom;
-    $txt = "You have recieved an e-mail from ".$name.".\n\n".$message;
+    $to = "jstodd42@gmail.com";
+    $headers = "From: $email_from \r\n";
+    $headers = "From: $email_from \r\n";
         
-    mail($mailTo, $subject, $txt, $headers);
-    header("Location: contact.html?mailsend");
-}
+    mail($to,$email_subject,$headers);
+    header("Location: contact.html");
 
 ?>
