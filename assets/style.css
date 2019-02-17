@@ -317,6 +317,13 @@ header {
     margin: 0;
     text-align: center;
 }
+.twitter {
+    display: block;
+    padding-left: 30%;
+    max-width: 70%;
+    max-height: 50%;
+    overflow: scroll;
+}
 
 
 /*Contact page styling*/
